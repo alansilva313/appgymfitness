@@ -18,6 +18,13 @@ após o cadastro e segundo acesso esses dados já não são mais solicitados. Po
 
 4 - Tela de profile, onde ele pode visualizar os seus dados pessoais e também realizar o logout do app.
 
+
+# OBSERVAÇÃO IMPORTANTE
+ - Antes de rodar o app é necessário configurar a URL dentro do arquivo .env
+ ![image](https://github.com/alansilva313/appgymfitness/assets/96753536/34bcd1f1-5873-4edf-8204-b045f133ebe0)
+ para descobrir qual é o seu ip, basta abrir o CMD e digitar ipconfig onde terá o endereço ipv4 altere com o seu http://alteraraqui:3000
+
+
 # EXECUTAR O PROJETO
 - Para rodar o app basta no terminal execuar o seguinte comando: npx expo start
 
