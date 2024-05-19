@@ -33,7 +33,7 @@ export const styles = StyleSheet.create({
     },
 
     corLogou: {
-        backgroundColor: 'pink',
+        backgroundColor: '#ccc',
         borderWidth: 0
     }
 })
