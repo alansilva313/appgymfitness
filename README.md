@@ -18,6 +18,9 @@ após o cadastro e segundo acesso esses dados já não são mais solicitados. Po
 
 4 - Tela de profile, onde ele pode visualizar os seus dados pessoais e também realizar o logout do app.
 
+# EXECUTAR O PROJETO
+- Para rodar o app basta no terminal execuar o seguinte comando: npx expo start
+
 
 
 
