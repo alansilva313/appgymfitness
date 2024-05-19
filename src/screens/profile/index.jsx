@@ -15,7 +15,8 @@ export default function Profile() {
   const [altura, setAltura] = useState('')
   const { dataUser } = useContext(AuthContext)
 
- 
+
+  const [inicial, setInicial] = useState('')
    
   useEffect(() => {
     const handleMedidas = async() => {
@@ -36,14 +37,38 @@ export default function Profile() {
   }
 
 
-
+  useEffect(() => {
+    function getInitials(name) {
+      // Dividir o nome completo em partes
+      const nameParts = name.trim().split(' ');
+    
+      // Se houver apenas um nome, retornamos a primeira letra duas vezes
+      if (nameParts.length === 1) {
+        return nameParts[0].charAt(0).toUpperCase() + nameParts[0].charAt(0).toUpperCase();
+      }
+    
+      // Pegar a primeira parte (primeiro nome) e a última parte (último nome)
+      const firstName = nameParts[0];
+      const lastName = nameParts[nameParts.length - 1];
+    
+      // Obter as iniciais do primeiro e último nome, convertendo para maiúsculas
+      const firstInitial = firstName.charAt(0).toUpperCase();
+      const lastInitial = lastName.charAt(0).toUpperCase();
+    
+      // Retornar as iniciais concatenadas
+      return firstInitial + lastInitial;
+    }
+    
+    // Exemplos de uso
+    setInicial(getInitials(dataUser.data.name))
+   }, [])
   
   return (
     <View style={{flex: 1}}>
         <Header />
       <View style={styles.cardProfile}>
        <View style={styles.perfilImgLt}>
-       <Text>Profile</Text>
+       <Text style={{fontSize: 24, color: "#fff"}}>{inicial}</Text>
        </View>
       </View>
 
