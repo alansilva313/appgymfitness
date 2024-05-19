@@ -1,9 +1,10 @@
 import { View, Text, ScrollView, Modal, TextInput, TouchableOpacity } from 'react-native'
 import React, { useContext, useEffect, useState } from 'react'
 import { styles } from './style'
-import { Ionicons, FontAwesome5 } from '@expo/vector-icons'
+import { Ionicons } from '@expo/vector-icons'
 import axios from 'axios';
 import { AuthContext } from '../../contexts/Auth';
+import { URL_APP } from '@env'
 export default function Medidas() {
 
    const [peso, setPeso] = useState('');
@@ -29,7 +30,7 @@ export default function Medidas() {
         id_user: dataUser.data.id
        }
        try {
-          const response = await axios.post('http://192.168.1.108:3000/createmedidas', med, {
+          const response = await axios.post(`${URL_APP}/createmedidas`, med, {
             headers: {
               'Content-Type': 'application/json'
             }
@@ -52,7 +53,7 @@ export default function Medidas() {
 
    const buscarmedidas = async () => {
     try {
-     const response = await axios.get(`http://192.168.1.108:3000/buscarmedidas/?id_user=${idDoUsuario}`)
+     const response = await axios.get(`${URL_APP}/buscarmedidas/?id_user=${idDoUsuario}`)
 
      setExistMedida(response.data.success)
      if(response.data.success !== false){

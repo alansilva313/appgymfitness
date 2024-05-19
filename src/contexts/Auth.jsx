@@ -1,6 +1,6 @@
 import axios from "axios";
 import { createContext, useState } from "react";
-
+import { URL_APP } from '@env'
 
 const AuthContext = createContext()
 
@@ -15,7 +15,7 @@ function AuthProvider({ children }){
          password: password
         }
         try {
-         const response = await axios.post('http://192.168.1.108:3000/autenticate', data)
+         const response = await axios.post(URL_APP+'/autenticate', data)
          setDataUser(response.data)
          return response.data.success;
 

@@ -6,6 +6,9 @@ import { useNavigation } from '@react-navigation/native'
 import { AuthContext } from '../../contexts/Auth'
 import { Ionicons } from '@expo/vector-icons'
 import axios from 'axios'
+import { URL_APP } from '@env'
+
+
 export default function Profile() {
  
   const [peso, setPeso] = useState('')
@@ -17,7 +20,7 @@ export default function Profile() {
   useEffect(() => {
     const handleMedidas = async() => {
       try {
-         const response = await axios.get(`http://192.168.1.108:3000/buscarmedidas/?id_user=${dataUser.data.id}`)
+         const response = await axios.get(`${URL_APP}/buscarmedidas/?id_user=${dataUser.data.id}`)
          setPeso(response.data['data'][0].peso)
          setAltura(response.data['data'][0].altura)
          

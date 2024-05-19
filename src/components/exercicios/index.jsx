@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState, useRef } from 'react';
 import BottomSheet, { BottomSheetView } from '@gorhom/bottom-sheet';
 import { Ionicons } from '@expo/vector-icons';
 import axios from 'axios';
+import { URL_APP } from '@env'
 
 import { AuthContext } from '../../contexts/Auth';
 
@@ -35,7 +36,7 @@ export default function Exercicios() {
 
   const handleReadExercicios = async () => {
     try {
-      const response = await axios.get(`http://192.168.1.108:3000/lerexerciciosuser/?id_user=${dataUser.data.id}`);
+      const response = await axios.get(`${URL_APP}/lerexerciciosuser/?id_user=${dataUser.data.id}`);
       console.log(response.data['data']);
       setDados(response.data['data']);
     } catch (error) {
@@ -60,7 +61,7 @@ export default function Exercicios() {
     };
 
     try {
-      const response = await axios.post(`http://192.168.1.108:3000/criarecercicios/?id_user=${idUser}`, dadosExercicio);
+      const response = await axios.post(`${URL_APP}/criarecercicios/?id_user=${idUser}`, dadosExercicio);
       Alert.alert('Sucesso!', response.data.message);
       handleReadExercicios();
       bottomSheet.current?.close();
@@ -78,7 +79,7 @@ export default function Exercicios() {
   const handleDeleteExercicio = async (id_exercicio) => {
     console.log(id_exercicio);
     try {
-      const response = await axios.delete(`http://192.168.1.108:3000/deleteexercicio/?id_exercicio=${id_exercicio}`);
+      const response = await axios.delete(`${URL_APP}/deleteexercicio/?id_exercicio=${id_exercicio}`);
       console.log(response.data);
       handleReadExercicios();
     } catch (error) {

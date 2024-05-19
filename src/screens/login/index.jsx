@@ -4,11 +4,16 @@ import { useNavigation } from '@react-navigation/native'
 import { styles } from './style'
 import { AuthContext } from '../../contexts/Auth'
 
+
 export default function Login() {
    const [email, setEmail] = useState('')
    const [password, setPassword] = useState('')
- const navigation = useNavigation()
+      const navigation = useNavigation()
      const { login } = useContext(AuthContext)
+
+
+    
+
     const handleHome  = async () => {
         
         const response = await login({ email: email, password: password})

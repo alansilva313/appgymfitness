@@ -4,6 +4,7 @@ import { styles } from './style'
 import axios from 'axios';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { useNavigation } from '@react-navigation/native';
+import { URL_APP } from '@env'
 
 export default function Subscribe() {
       const [name, setName] = useState('');
@@ -51,7 +52,7 @@ export default function Subscribe() {
        }
 
 
-       const response = await axios.post('http://192.168.1.108:3000/caduser', dataUser)
+       const response = await axios.post(`${URL_APP}/caduser`, dataUser)
 
       if(response.data.success === true){
         Alert.alert('SUCESSO', 'Usuário criado com sucesso!')
